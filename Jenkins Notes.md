@@ -233,12 +233,12 @@ It is used to store values that are going to change frequently.
 
 ## Types of Variables
 
-## 1. User Defined Variables ##                                                  
+## 1. User Defined Variables                                                  
 These are defined by user                                                     
-## 2. Jenkins Environment Variables ##
-These are defined by Jenkins itself.
-These variables can be change from build to build.
-These variables will be on Upper case.                                      
+## 2. Jenkins Environment Variables
+These are defined by Jenkins itself.                                            
+These variables can be change from build to build.                               
+These variables will be on Upper case.                                           
 These variables can be defined only once.
 
 ---
