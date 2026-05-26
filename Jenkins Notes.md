@@ -229,15 +229,25 @@ sh jenkins.sh
 
 # 🧮 Variables in Jenkins
 
+It is used to store values that are going to change frequently.
+
 ## Types of Variables
 
-1. User Defined Variables
-2. Jenkins Environment Variables
+## 1. User Defined Variables ##                                                  
+These are defined by user                                                     
+## 2. Jenkins Environment Variables ##
+These are defined by Jenkins itself.
+These variables can be change from build to build.
+These variables will be on Upper case.                                      
+These variables can be defined only once.
 
 ---
+## User Defined Variables
+## i) Local Variable
 
-## Local Variable
-
+```text
+New Item → Name: XYZ → Freestyle Project → OK → Build → Execute Shell
+```
 ```bash
 name=saim
 
@@ -246,14 +256,17 @@ echo "Hi my name is $name"
 
 ---
 
-## Global Variable
+## ii) Global Variable
 
 ```text
-Dashboard → Manage Jenkins → System →
-Global Properties → Environment Variables
+Dashboard → Manage Jenkins → System → Global Properties → Environment Variables → ADD:NAMW:name VALUE:saim → Save.
 ```
+## Note ##:                                                                      
+While defining variables SPACE will not be given.                                
+Local variables will be high priority.
 
----
+## Limitations ##:                                                             
+Some values can't be defined by user because these values will change build by build. 
 
 # 🌍 Jenkins Environment Variables
 
