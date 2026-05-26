@@ -478,8 +478,13 @@ If Pipeline fails on Stage-1 it won't go for the Stage-2
 
 # 🧱 Types of Pipelines
 
-1. Declarative Pipeline
-2. Scripted Pipeline
+## 1. Declarative Pipeline
+## 2. Scripted Pipeline
+
+To write the pipeline we use DSL.                                               
+We use Groovy Script for Jenkins Pipeline.                                      
+It consists of blocks that include stages.                                       
+It include ( ) & { } braces.
 
 ---
 
@@ -645,7 +650,9 @@ stage('deploy') {
     }
 }
 ```
-
+### Note: 
+- In real time providing manula approval is best practices for Jenkins Pipelines.
+- If we have syntax issue none of the stages will execute.
 ---
 
 # ⚖️ Scripted vs Declarative Pipeline
@@ -662,7 +669,8 @@ stage('deploy') {
 # 🧠 Jenkins Master & Agent
 
 ## Why Agents?
-
+- It is used to distribute the builds
+- It reduce the load on Jenkins server
 - Reduce load on Jenkins master
 - Run parallel builds
 - Distributed execution
@@ -688,10 +696,12 @@ amazon-linux-extras install java-openjdk11 -y
 ## Create Agent Node
 
 ```text
-Dashboard →
-Manage Jenkins →
+Dashboard → Job →
+Manage Jenkins → 
 Nodes & Clouds →
-New Node
+New Node →
+Nodename: XYZ →
+Permanent Agent → Save
 ```
 
 ---
