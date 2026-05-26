@@ -262,11 +262,11 @@ echo "Hi my name is $name"
 Dashboard → Manage Jenkins → System → Global Properties → Environment Variables → ADD:NAMW:name VALUE:saim → Save.
 ```
 ## Note:                                                                      
-While defining variables SPACE will not be given.                                
-Local variables will be high priority.
+- While defining variables SPACE will not be given.                             
+- Local variables will be high priority.
 
 ## Limitations:                                                             
-Some values can't be defined by user because these values will change build by build. 
+- Some values can't be defined by user because these values will change build by build. 
 
 # 🌍 Jenkins Environment Variables
 
@@ -334,11 +334,13 @@ systemctl restart jenkins.service
 
 # 🧵 Parallel Builds & Executors
 
+Jenkins will run the jobs sequentially (one by one).                            
+If i want to run multiple builds at same time we can configure ⬇️
+
 ## Enable Concurrent Builds
 
 ```text
-Job → Configure →
-Execute concurrent builds if necessary
+Job → Configure → Execute concurrent builds if necessary → Save
 ```
 
 ---
@@ -355,6 +357,11 @@ Executors: 2-5
 ---
 
 # ⏰ Cron Jobs in Jenkins
+
+We can schedule the jobs that need to be run at particular intervals.            
+Here we can use cron syntax.                                                    
+Cron syntax has * * * * *                                                        
+Each * is separated by space
 
 Cron format:
 
@@ -373,15 +380,20 @@ Example:
 ```text
 30 18 14 9 0
 ```
+```text
+Create Job → Build Triggers → Build Periodically → Save
+```
 
 ---
+## Limitation: 
+- It will not check the code is changed or not.
 
 # 🔍 Poll SCM
 
 Checks Git repository periodically.
 
 ```text
-Build Triggers → Poll SCM
+Build Triggers → Poll SCM → Save
 ```
 
 Example:
@@ -391,23 +403,25 @@ Example:
 ```
 
 ### Limitations
-
-- Waits for polling interval
-- Gets only latest commit
+- We need to wait for the time we set
+- Will gets only latest commit
 
 ---
 
 # 🔗 GitHub Webhook
 
+It will trigger build the moment we change the code.                            
+Here we need not to wait for the build.                                         
 Triggers build instantly after code push.
 
 ## Setup
 
 ```text
-GitHub Repo →
-Settings →
-Webhooks →
-Add Webhook
+GitHub Repo → Settings → Webhooks → Add Webhook
+→ Payload URL (Jenkins URL) → Content Type → Application/json → Add
+```
+```text
+Create Job → Build Triggers:GitHub hook trigger for GITScm polling →Save
 ```
 
 Payload URL:
@@ -426,22 +440,39 @@ GitHub hook trigger for GITScm polling
 
 # 🚦 Throttle Builds
 
-Restrict number of builds in specific intervals.
+To Restrict number of builds in specific time or intervals.                     
+If we don't restrict due to immediate builds Jenkins might crashdown.             
+By default Jenkins will not do concurrent builds.                                
+We need to enable this option in configuration.
 
 ```text
-Configure →
-Throttle Builds
+Execute concurrent builds if necessary → ✅Tick it 
+```
+
+```text
+Create Job → Configure → Throttle Builds → Number of Builds → Time Period → Save
 ```
 
 ---
 
+👀## Note:
+If we stop server then services inside server also going to stop.
+```
+chkconfig jenkins on
+```
+The above command will restart the jenkins service all the time
+
 # 📦 Jenkins Pipeline
+
+Step By Step Execution Of A Process.                                            
+Series Of Events Interlinked With Each Other.
 
 A Jenkins Pipeline automates software delivery.
 
 ```text
 Code → Build → Test → Artifact → Deployment
 ```
+If Pipeline fails on Stage-1 it won't go for the Stage-2
 
 ---
 
