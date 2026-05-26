@@ -385,24 +385,21 @@ Create Job → Build Triggers → Build Periodically → Save
 ```
 
 ---
-## Limitation: 
+### ✋Limitation: 
 - It will not check the code is changed or not.
 
 # 🔍 Poll SCM
+In PollScm we will set time limit for the job.                                  
+If Developer commit the code it will wait until the time is done.               
+In given time if we have any changes on code it will generate a build.           
 
 Checks Git repository periodically.
 
 ```text
-Build Triggers → Poll SCM → Save
+Create Job → Build Triggers → Poll SCM → * * * * * → Save
 ```
 
-Example:
-
-```text
-* * * * *
-```
-
-### Limitations
+### ✋Limitations
 - We need to wait for the time we set
 - Will gets only latest commit
 
@@ -418,10 +415,12 @@ Triggers build instantly after code push.
 
 ```text
 GitHub Repo → Settings → Webhooks → Add Webhook
-→ Payload URL (Jenkins URL) → Content Type → Application/json → Add
+→ Payload URL (Jenkins URL) → Content Type
+→ Application/json → Add
 ```
 ```text
-Create Job → Build Triggers:GitHub hook trigger for GITScm polling →Save
+Create Job →
+Build Triggers:GitHub hook trigger for GITScm polling → Save
 ```
 
 Payload URL:
@@ -450,12 +449,13 @@ Execute concurrent builds if necessary → ✅Tick it
 ```
 
 ```text
-Create Job → Configure → Throttle Builds → Number of Builds → Time Period → Save
+Create Job → Configure → Throttle Builds → Number of Builds →
+Time Period → Save
 ```
 
 ---
 
-👀## Note:
+## 👀Note:
 If we stop server then services inside server also going to stop.
 ```
 chkconfig jenkins on
