@@ -261,11 +261,11 @@ echo "Hi my name is $name"
 ```text
 Dashboard → Manage Jenkins → System → Global Properties → Environment Variables → ADD:NAMW:name VALUE:saim → Save.
 ```
-## Note ##:                                                                      
+# Note:                                                                      
 While defining variables SPACE will not be given.                                
 Local variables will be high priority.
 
-## Limitations ##:                                                             
+# Limitations:                                                             
 Some values can't be defined by user because these values will change build by build. 
 
 # 🌍 Jenkins Environment Variables
