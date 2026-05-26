@@ -188,7 +188,7 @@ Build Now
 
 # 📁 Workspace
 
-Where your job output is going to be stored.
+Where your job output is going to be stored.                                 
 Default workspace path:
 
 ```bash
